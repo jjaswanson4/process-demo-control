@@ -1,0 +1,137 @@
+[
+    {
+        "id": "58a670c8.70c68",
+        "type": "tab",
+        "label": "Control Flow",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7b539fdf.939dc",
+        "type": "mqtt in",
+        "z": "58a670c8.70c68",
+        "name": "",
+        "topic": "tank/temp",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "c26086fc.daea48",
+        "x": 100,
+        "y": 300,
+        "wires": [
+            [
+                "30c9cad3.139d16"
+            ]
+        ]
+    },
+    {
+        "id": "30c9cad3.139d16",
+        "type": "PID control",
+        "z": "58a670c8.70c68",
+        "name": "pid",
+        "target": "100",
+        "kp": "2000",
+        "ki": ".01",
+        "kd": ".01",
+        "x": 470,
+        "y": 300,
+        "wires": [
+            [
+                "150e5ebd.571d11"
+            ]
+        ]
+    },
+    {
+        "id": "29b573c9.32558c",
+        "type": "mqtt out",
+        "z": "58a670c8.70c68",
+        "name": "",
+        "topic": "tank/heat",
+        "qos": "0",
+        "retain": "false",
+        "broker": "c26086fc.daea48",
+        "x": 760,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "150e5ebd.571d11",
+        "type": "function",
+        "z": "58a670c8.70c68",
+        "name": "limit",
+        "func": "if (msg.payload > 2000) msg.payload = 2000;\nif (msg.payload < 0) msg.payload = 0;\nmsg.payload = parseInt(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "29b573c9.32558c"
+            ]
+        ]
+    },
+    {
+        "id": "e42fb022.529e7",
+        "type": "function",
+        "z": "58a670c8.70c68",
+        "name": "remapProperty",
+        "func": "msg.setpoint = msg.payload;\nmsg.payload = '';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 420,
+        "wires": [
+            [
+                "30c9cad3.139d16"
+            ]
+        ]
+    },
+    {
+        "id": "588d2cf7.917d84",
+        "type": "comment",
+        "z": "58a670c8.70c68",
+        "name": "This flow wires the PID controller to sensor, actuator and setpoint",
+        "info": "",
+        "x": 250,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "594744cb.28608c",
+        "type": "mqtt in",
+        "z": "58a670c8.70c68",
+        "name": "",
+        "topic": "controller/sp",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "c26086fc.daea48",
+        "x": 110,
+        "y": 420,
+        "wires": [
+            [
+                "e42fb022.529e7"
+            ]
+        ]
+    },
+    {
+        "id": "c26086fc.daea48",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "cluster internal mqtt",
+        "broker": "mqtt",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    }
+]

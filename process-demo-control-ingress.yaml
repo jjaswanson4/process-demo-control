@@ -1,0 +1,8 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: process-demo-control-ingress
+spec:
+  backend:
+    serviceName: process-demo-control
+    servicePort: 1880

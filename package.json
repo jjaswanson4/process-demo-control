@@ -1,0 +1,22 @@
+{
+  "name": "process-demo-control",
+  "version": "1.0.0",
+  "description": "Process automation demo controller",
+  "author": "biernat@ieee.org",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TimBiernat/process-demo-control.git"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "main": "node_modules/node-red/red/red.js",
+  "dependencies": {
+    "node-red": "^1.0.4",
+    "node-red-node-pidcontrol": "^0.0.4"
+  },
+  "scripts": {
+    "start": "node-red /data/flows.json"
+  }
+}

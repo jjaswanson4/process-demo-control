@@ -1,0 +1,17 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: process-demo-control-deployment
+spec:
+  selector:
+    matchLabels:
+      app: process-demo-control
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: process-demo-control
+    spec:
+      containers:
+      - name: process-demo-control
+        image: tbiernat/process-demo-control
