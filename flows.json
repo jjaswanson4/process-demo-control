@@ -7,6 +7,28 @@
         "info": ""
     },
     {
+        "id": "c26086fc.daea48",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "cluster internal mqtt",
+        "broker": "mqtt",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
         "id": "7b539fdf.939dc",
         "type": "mqtt in",
         "z": "58a670c8.70c68",
@@ -89,9 +111,9 @@
         "id": "588d2cf7.917d84",
         "type": "comment",
         "z": "58a670c8.70c68",
-        "name": "This flow wires the PID controller to sensor, actuator and setpoint",
+        "name": "This flow wires the PID control function to sensor, actuator and setpoint",
         "info": "",
-        "x": 250,
+        "x": 270,
         "y": 180,
         "wires": []
     },
@@ -111,27 +133,5 @@
                 "e42fb022.529e7"
             ]
         ]
-    },
-    {
-        "id": "c26086fc.daea48",
-        "type": "mqtt-broker",
-        "z": "",
-        "name": "cluster internal mqtt",
-        "broker": "mqtt",
-        "port": "1883",
-        "clientid": "",
-        "usetls": false,
-        "compatmode": false,
-        "keepalive": "60",
-        "cleansession": true,
-        "birthTopic": "",
-        "birthQos": "0",
-        "birthPayload": "",
-        "closeTopic": "",
-        "closeQos": "0",
-        "closePayload": "",
-        "willTopic": "",
-        "willQos": "0",
-        "willPayload": ""
     }
 ]
