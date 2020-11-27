@@ -103,6 +103,9 @@ module.exports = {
    // The following property can be used in place of 'httpAdminRoot' and 'httpNodeRoot',
    // to apply the same root to both parts.
    //httpRoot: '/red',
+   
+   // run "headless"
+   // httpRoot: false,
 
    // When httpAdminRoot is used to move the UI to a different root path, the
    // following property can be used to identify a directory of static content

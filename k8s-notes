@@ -1,3 +1,11 @@
+Node-red flow development:
+  install node-red locally, http://localhost:1880
+  manage pallete, install required nodes (e.g. pid)
+  import flows and mod, or develop desired flows
+  test run against mqtt broker
+  export flows.json to this project
+
+Note: to run headless (sans editor) set httpRoot: false, in settings.json. This saves 10+MB
 docker build -t tbiernat/process-demo-control .
 docker push tbiernat/process-demo-control
 kubectl apply -f process-demo-control-deployment.yaml
