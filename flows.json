@@ -11,7 +11,7 @@
         "type": "mqtt-broker",
         "z": "",
         "name": "cluster internal mqtt",
-        "broker": "mqtt",
+        "broker": "localhost",
         "port": "1883",
         "clientid": "",
         "usetls": false,
